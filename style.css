@@ -18,10 +18,6 @@ html, body {
   background: #eaf1fa;
   transition: opacity 0.5s;
 }
-.splash-logo {
-  width: 150px;
-  margin-bottom: 18px;
-}
 .splash-title {
   font-size: 2.1em;
   font-weight: bold;
@@ -91,7 +87,12 @@ html, body {
   transition: background 0.17s;
 }
 .btn-register { background: #1db954; }
-.btn-google { background: #1762a7; color: #fff; }
+.btn-google {
+  background: #1762a7; 
+  color: #fff; 
+  border: none;
+  margin-bottom: 0;
+}
 .btn-google i { margin-right: 7px; }
 .forgot-row {
   display: flex;
@@ -106,6 +107,8 @@ html, body {
   text-decoration: underline;
   margin-bottom: 3px;
 }
+
+/* Header for Dashboard */
 .fixed-header {
   background: #0f3d6b;
   color: #fff;
@@ -139,7 +142,7 @@ html, body {
 }
 .class-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px 8px;
   justify-items: center;
   align-items: center;
@@ -172,7 +175,7 @@ html, body {
   cursor: pointer;
   box-shadow: 0 2px 10px #0f3d6b12;
   text-align: left;
-  transition: background 0.16s, box-shadow 0.12s, transform 0.16s;
+  transition: background 0.16s, box-shadow 0.12s;
   display: flex;
   align-items: center;
 }
@@ -188,17 +191,30 @@ html, body {
   color: #0f3d6b;
   cursor: pointer;
   box-shadow: 0 2px 12px #0f3d6b0a;
-  transition: transform 0.16s, border 0.13s, box-shadow 0.16s;
+  transition: transform .16s, border .13s;
   margin-bottom: 2px;
   text-align: center;
   letter-spacing: 0.5px;
 }
-.interactive-hover:hover {
+.class-btn:hover {
   transform: translateY(-2px) scale(1.035);
   border-width: 3.2px;
   box-shadow: 0 4px 22px #1467b71a;
 }
-.section-chip:hover { background: #eaf1fa; }
+
+.section-chip:hover {
+  background: #eaf1fa;
+  box-shadow: 0 4px 16px #0f3d6b22;
+}
+.class-btn:hover, .section-chip:hover {
+  transform: translateY(-2px) scale(1.035);
+  border-width: 3.2px;
+  box-shadow: 0 4px 22px #1467b71a;
+}
+.student-list {
+  flex-direction: column;
+  gap: 0px;
+}
 .student-row {
   background: #fff;
   border-radius: 12px;
@@ -217,6 +233,7 @@ html, body {
   font-weight: bold;
   color: #1467b7;
 }
+/* FAB and Settings */
 .fab, .settings-btn {
   position: fixed;
   right: 22px;
@@ -229,13 +246,18 @@ html, body {
   background: #0f3d6b;
   color: #fff;
   box-shadow: 0 2px 18px #0f3d6b55;
-  transition: background 0.15s;
+  transition: background .15s;
 }
 .fab {
   width: 56px;
   height: 56px;
   bottom: 92px;
   z-index: 104;
+}
+.fab:before {
+  content: "+";
+  font-size: 2em;
+  color: #fff;
 }
 .settings-btn {
   width: 46px;
@@ -245,6 +267,7 @@ html, body {
   z-index: 103;
 }
 .settings-btn i { pointer-events: none; }
+/* Popups/Modal */
 #popup-bg {
   position: fixed;
   left: 0; top: 0; right: 0; bottom: 0;
@@ -255,6 +278,7 @@ html, body {
   justify-content: center;
 }
 #popup-bg.hidden, #popup.hidden { display: none !important; }
+
 .popup, #popup {
   background: #fff;
   border-radius: 22px;
@@ -301,9 +325,9 @@ html, body {
   border-radius: 8px;
   padding: 11px 20px;
   cursor: pointer;
-  transition: background 0.14s;
+  transition: background .14s;
 }
-.popup .action-btn {
+.popup button:not(.cancel-btn) {
   background: #0f3d6b;
   color: #fff;
   border: none;
@@ -311,9 +335,9 @@ html, body {
   padding: 11px 20px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.14s;
+  transition: background .14s;
 }
-.popup .action-btn:hover { background: #195084; }
+.popup button:not(.cancel-btn):hover { background: #195084; }
 .option-row {
   display: flex;
   flex-direction: column;
@@ -329,30 +353,11 @@ html, body {
   font-weight: 500;
   width: 100%;
   cursor: pointer;
-  transition: background 0.13s;
+  transition: background .13s;
 }
 .option-btn:hover { background: #0f3d6b; }
-::-webkit-scrollbar {
-  width: 8px;
-  background: #f4f8fc;
-}
-::-webkit-scrollbar-thumb {
-  background: #0f3d6b;
-  border-radius: 4px;
-}
-body:not(.dashboard) .fab, .hidden {
+
+::-webkit-scrollbar { width: 0; background: transparent; }
+body:not(.dashboard) .fab {
   display: none !important;
-}
-@media (max-width: 600px) {
-  .class-list {
-    grid-template-columns: 1fr;
-  }
-  .popup {
-    width: 90vw;
-  }
-}
-@media (min-width: 768px) {
-  .main-content {
-    max-width: 700px;
-  }
 }
