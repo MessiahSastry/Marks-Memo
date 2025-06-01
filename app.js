@@ -211,7 +211,7 @@ auth.onAuthStateChanged(function(user) {
         if (user) {
             // User is logged in, redirect to dashboard
             if (!isDashboard) { // Prevent infinite loop if already on dashboard.html
-                window.location.replace("Progress-card-app/dashboard.html");
+                window.location.replace("/Progress-card-app/dashboard.html");
             }
         } else {
             // User is not logged in, show login UI after splash
