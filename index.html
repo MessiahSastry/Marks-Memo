@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>St. Patrick's Progress Card App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <title>St. Patrick's Progress Card App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="splash" id="splash">
-    <img src="logo.png" alt="School Logo" style="width:150px; margin-bottom:18px;">
-    <div class="splash-title">St. Patrick’s School</div>
-    <div class="splash-subtitle">IIT & NEET FOUNDATION</div>
-  </div>
-  <div id="login-root" style="display:none"></div>
+    <div class="splash" id="splash">
+        <img src="https://placehold.co/150x150/eaf1fa/0f3d6b?text=LOGO" alt="School Logo" style="width:150px; margin-bottom:18px;">
+        <div class="splash-title">St. Patrick’s School</div>
+        <div class="splash-subtitle">IIT & NEET FOUNDATION</div>
+    </div>
 
-  <!-- All scripts below (ORDER IS IMPORTANT) -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
-  <script src="app.js"></script>
+    <div id="login-root" class="hidden"></div>
+
+    <div id="message-popup-bg" class="hidden">
+        <div id="message-popup" class="popup">
+            <h3 id="message-popup-title" class="popup-title"></h3>
+            <p id="message-popup-content"></p>
+            <div class="btn-row">
+                <button class="cancel-btn" id="message-popup-ok-btn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
